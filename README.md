@@ -9,18 +9,10 @@
 
 ### 1. Проверка на браузере Chrome
 
-Тест проверяет возможность выбора WorldFile на браузере Chrome.
+Тест проверяет возможность выбора WorldFile.
 
 ```python
-def test_choice_worldfile_chrome(browser_chrome):
-```
-
-### 2. Проверка на браузере FireFox
-
-Тест проверяет возможность выбора WorldFile на браузере FireFox.
-
-```python
-def test_choice_worldfile_firefox(browser_firefox):
+def test_choice_worldfile(browser):
 ```
 
 ## Использование
