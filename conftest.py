@@ -2,20 +2,26 @@ import pytest
 from selenium import webdriver
 from configurations import MAIN_URL
 
-@pytest.fixture
-def browser_chrome(request):
-    """Автоматически открывает указанный URL-адрес MAIN_URL перед началом теста и
-    закрывает браузер после завершения теста"""
-    driver = webdriver.Chrome()
-    driver.get(MAIN_URL)
-    yield driver
-    driver.quit()
+
+BROWSER_TYPE = {"chrome": "chromedriver", "firefox": "geckodriver"}
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--browser",
+        action="store",
+        default="chrome",
+        help="Выбери браузер, есть chrome и firefox, по умолчанию: %(default)",
+    )
+
 
 @pytest.fixture
-def browser_firefox(request):
-    """Автоматически открывает указанный URL-адрес MAIN_URL перед началом теста и
-    закрывает браузер после завершения теста"""
-    driver = webdriver.Firefox()
+def browser(request):
+    browser_type = request.config.getoption("--browser")
+    if browser_type == "firefox":
+        driver = webdriver.Firefox()
+    else:
+        driver = webdriver.Chrome()
     driver.get(MAIN_URL)
     yield driver
     driver.quit()

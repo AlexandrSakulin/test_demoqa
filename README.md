@@ -33,8 +33,12 @@ def test_choice_worldfile_firefox(browser_firefox):
 Пример запуска с pytest:
 
 ```bash
-pytest test_choice_wordfile.py
+pytest test_choice_wordfile.py 
 ```
+Если надо запустить проверку на firefox то добавить опцию `--browser=firefox`,
+по стандарту chrome
 
-
+```bash
+pytest test_choice_wordfile.py --browser=firefox
+```
 ---
