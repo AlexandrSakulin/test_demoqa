@@ -10,7 +10,7 @@ class ElementsPageLocators:
 
 
 class CheckBoxPageLocators:
-    HOME_TOGGLE = (By.XPATH, '//*[@id="tree-node"]/ol/li/span/button')
-    DOWNLOADS_TOGGLE = (By.XPATH, '//*[@id="tree-node"]/ol/li/ol/li[3]/span/button')
-    WORD_FILE = (By.XPATH, '//*[@id="tree-node"]/ol/li/ol/li[3]/ol/li[1]/span/label')
+    HOME_TOGGLE = (By.XPATH, "//span[text()='Home']/../../button[@title='Toggle']")
+    DOWNLOADS_TOGGLE = (By.XPATH, "//span[text()='Downloads']/../../button[@title='Toggle']")
+    WORD_FILE = (By.XPATH, "//span[text()='Word File.doc']")
     RESULT_TEXT = (By.ID, "result")

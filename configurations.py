@@ -1,1 +1,1 @@
-MAIN_URL = 'https://demoqa.com/'
+MAIN_URL = "https://demoqa.com/"

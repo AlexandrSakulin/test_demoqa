@@ -7,9 +7,7 @@
 
 ## Тесты
 
-### 1. Проверка на браузере Chrome
-
-Тест проверяет возможность выбора WorldFile.
+1. Тест проверяет возможность выбора WorldFile.
 
 ```python
 def test_choice_worldfile(browser):
@@ -27,10 +25,35 @@ def test_choice_worldfile(browser):
 ```bash
 pytest test_choice_wordfile.py 
 ```
+
 Если надо запустить проверку на firefox то добавить опцию `--browser=firefox`,
 по стандарту chrome
 
 ```bash
 pytest test_choice_wordfile.py --browser=firefox
 ```
+
 ---
+
+### Тест поддерживает интеграцию с Allure для генерации наглядных отчетов.
+
+#### Запуск тестов с Allure:
+
+```bash
+pytest your_test_file.py --alluredir=/path/to/results/directory
+```
+
+Здесь `/path/to/results/directory` - это директория, куда будут сохранены результаты
+выполнения тестов.
+
+#### Генерация отчета:
+
+После выполнения тестов, чтобы посмотреть отчет в интерфейсе Allure,
+выполните следующую команду:
+
+```bash
+allure serve /path/to/results/directory
+```
+
+Это автоматически запустит веб-сервер и откроет веб-браузер с отчетом,
+если у вас установлен Allure.

@@ -1,9 +1,18 @@
 import pytest
 from selenium import webdriver
+
 from configurations import MAIN_URL
 
 
-BROWSER_TYPE = {"chrome": "chromedriver", "firefox": "geckodriver"}
+def get_firefox():
+    return webdriver.Firefox()
+
+
+def get_chrome():
+    return webdriver.Chrome()
+
+
+BROWSER_TYPE = {"chrome": get_chrome, "firefox": get_firefox}
 
 
 def pytest_addoption(parser):
@@ -18,10 +27,7 @@ def pytest_addoption(parser):
 @pytest.fixture
 def browser(request):
     browser_type = request.config.getoption("--browser")
-    if browser_type == "firefox":
-        driver = webdriver.Firefox()
-    else:
-        driver = webdriver.Chrome()
+    driver = BROWSER_TYPE[browser_type]()
     driver.get(MAIN_URL)
     yield driver
     driver.quit()
