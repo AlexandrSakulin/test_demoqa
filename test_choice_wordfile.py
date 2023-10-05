@@ -12,7 +12,7 @@ def test_choice_worldfile(browser):
         page_main = MainPage(browser)
         page_main.go_to_elements_page()
 
-    with allure.step("Переход на страницу checkbox"):
+    with allure.step("Переход на страницу Elements"):
         page_elements = ElementsPage(browser)
         page_elements.go_to_checkbox_page()
 
