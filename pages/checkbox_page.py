@@ -16,4 +16,5 @@ class CheckBoxPage(BasePage, CheckBoxPageLocators):
     def choise_worldfile(self):
         """Выбираем World File"""
         self.find_element(*self.WORD_FILE).click()
-        assert self.is_element_present(self.RESULT_TEXT), "Сообщение 'You have selected: wordFile' отсутствует"
+        text_element = self.find_element(*self.RESULT_TEXT)
+        assert text_element.text == 'You have selected :\nwordFile', f"Сообщение {text_element.text} отсутствует"

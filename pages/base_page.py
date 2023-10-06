@@ -14,7 +14,8 @@ class BasePage:
     def is_element_present(self, locator: tuple, timeout=10) -> bool:
         """Проверяет наличие элемента на странице по заданным локаторам."""
         try:
-            return WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(locator))
+            WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(locator))
+            return True
         except TimeoutException:
             return False
 
@@ -23,3 +24,4 @@ class BasePage:
         return WebDriverWait(self.driver, timeout).until(
             EC.visibility_of_element_located((by, value)), message=f"Элемент {by, value} не найден"
         )
+
